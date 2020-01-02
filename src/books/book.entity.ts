@@ -22,10 +22,16 @@ export class Book extends BaseEntity {
     @Column({type: 'varchar', length: 20})
     author: string;
 
+    @Column({type: 'text'})
+    image_url: string;
+
+    // @Column({type: 'text'})
+    // pdf_url: string;
+
     @ManyToOne(type => User, user => user.books, {eager: false})
     user: User;
 
-    @Column()
-    userId: number;
+    @Column({type: 'uuid'})
+    userId: string;
 
 }
